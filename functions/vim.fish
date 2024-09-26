@@ -1,3 +1,7 @@
 function vim --wraps 'nvim'
-	nvim $argv
+	if command -q nvim
+		nvim $argv
+	else
+		vim $argv
+	end
 end

@@ -1,3 +1,7 @@
 function vimdiff --wraps 'nvim -d'
-	nvim -d $argv
+	if command -q nvim
+		nvim -d $argv
+	else
+		vimdiff $argv
+	end
 end
